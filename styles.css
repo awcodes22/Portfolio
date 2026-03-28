@@ -115,7 +115,7 @@ body {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 50px;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
 }
 
 .nav-avatar-fallback {
@@ -171,7 +171,7 @@ body {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  padding: 0.7rem 1.4rem;
+  padding: 0.75rem 1.8rem;
   border-radius: 50px;
   white-space: nowrap;
   transition: color 0.2s;
@@ -408,14 +408,14 @@ section {
   flex-direction: column;
   text-decoration: none;
   background: #1d1d1d;
-  border: 2px solid transparent;
   border-radius: 1.25rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 2px transparent;
+  transition: box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  border-color: rgba(92, 145, 145, 0.5);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(92, 145, 145, 0.15);
+  box-shadow: inset 0 0 0 2px rgba(92, 145, 145, 0.5), 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(92, 145, 145, 0.15);
 }
 
 .project-img-wrap {
@@ -468,11 +468,9 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.4rem;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.8rem 1.4rem;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   color: #fff;
   font-family: var(--font-inter);
@@ -485,6 +483,25 @@ section {
 
 .project-card:hover .project-view-pill {
   transform: translateY(0);
+}
+
+/* Coming soon card — desaturated image on hover */
+.project-card--coming-soon .project-img {
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+.project-card--coming-soon:hover .project-img {
+  filter: grayscale(40%) brightness(0.75);
+}
+
+/* Coming soon pill — no arrow, muted style */
+.project-view-pill--coming-soon {
+  cursor: default;
+  background: #1a1a1a;
+  border-color: rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .project-view {
